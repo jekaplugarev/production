@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // Куда производится сборка (в данном случаи не важна так как используется Webpack)
+    "outDir": "./dist/",
+    // Подсвечиват все места где не указан тип
+    "noImplicitAny": true,
+    "module": "ES6",
+    // Компиляция в ES5 для большей кроссбраузерности
+    "target": "ES5",
+    "jsx": "react",
+    // Компилятор обрабатывает не только TS но b JS файлы
+    "allowJs": true,
+    "moduleResolution": "Node",
+    // esModuleInterop позволяет работать с файлами common js (require() module.export)
+    // как с обычными, с помощью import
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "."
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
