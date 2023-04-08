@@ -1,17 +1,17 @@
 import {FC} from 'react'
 import "./styles/index.scss"
-import {Route, Routes} from "react-router-dom";
-import {useTheme} from "./providers/ThemeProvider/lib/useTheme";
-import {classNames} from "../shared/lib/classNames/classNames";
+import {useTheme} from "app/providers/ThemeProvider";
+import {classNames} from "shared/lib/classNames/classNames";
+import {AppRouter} from "app/providers/router";
+import {Navbar} from "widgets/Navbar";
 
 const App: FC = () => {
     const {theme, toggleTheme} = useTheme()
 
     return (
         <div className={classNames("app", {},[theme])}>
-            <Routes>
-                <Route></Route>
-            </Routes>
+            <Navbar/>
+            <AppRouter/>
         </div>
     )
 }
