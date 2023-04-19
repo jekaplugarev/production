@@ -1,5 +1,5 @@
-import { classNames } from '../../Downloads/production-project-b5e9ed2f2c5cd140743e83f60254c97855695e28/src/shared/lib/classNames/classNames';
 import './Loader.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface LoaderProps {
     className?: string;
