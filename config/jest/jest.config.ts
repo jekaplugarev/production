@@ -72,7 +72,7 @@ export default {
         'node_modules',
     ],
 
-    modulePath: [
+    modulePaths: [
         '<rootDir>src',
     ],
 
