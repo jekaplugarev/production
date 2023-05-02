@@ -6,6 +6,7 @@ import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Counter } from 'entities/Counter';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -46,6 +47,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             >
                 {t('Войти')}
             </Button>
+            <Counter />
             <LoginModal isOpen={isOpen} onClose={onCloseModal} />
         </div>
     );
