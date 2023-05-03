@@ -48,7 +48,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 {t('Войти')}
             </Button>
             <Counter />
-            <LoginModal isOpen={isOpen} onClose={onCloseModal} />
+            {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
         </div>
     );
 };
