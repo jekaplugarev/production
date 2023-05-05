@@ -24,5 +24,3 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
         </div>
     );
 };
-
-export default PageError;

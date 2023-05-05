@@ -11,7 +11,7 @@ interface LoginModalProps {
 export const LoginModal: FC<LoginModalProps> = ({ isOpen, onClose }) => (
     <Modal isOpen={isOpen} onClose={onClose} lazy>
         <Suspense fallback={<Loader />}>
-            <LoginFormAsync />
+            <LoginFormAsync onSuccess={onClose} />
         </Suspense>
     </Modal>
 );

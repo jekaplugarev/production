@@ -14,6 +14,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Jeka",
+    "lastname": "Pl",
+    "age": "32",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moskow",
+    "username": "admin",
+    "avatar": "https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg"
   }
 }
