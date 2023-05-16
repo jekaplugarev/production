@@ -6,7 +6,6 @@ import {
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
 import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
@@ -18,6 +17,7 @@ import {
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -48,7 +48,9 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstName = useCallback((value?: string) => {
