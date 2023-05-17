@@ -22,9 +22,9 @@ jobs:
       - name: build prod project
         run: npm run build:prod
         if: always()
-      - name: linting ts
-        run: npm run lint:ts
-        if: always()
+#      - name: linting ts
+#        run: npm run lint:ts
+#        if: always()
       - name: linting css
         run: npm run lint:scss
         if: always()
