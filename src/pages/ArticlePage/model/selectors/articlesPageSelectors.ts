@@ -12,3 +12,5 @@ export const articlesPageNum = (state: StateSchema) => state.articlesPage?.page 
 export const articlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 9;
 
 export const articlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;
+
+export const articlesPageInited = (state: StateSchema) => state.articlesPage?._inited;

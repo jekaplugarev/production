@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'shared/ui/ArticleViewSelector/ArticleViewSelector';
 import { Page } from 'shared/ui/Page/Page';
 import { PageError } from 'widgets/PageError';
+import { initArticlesPage } from 'pages/ArticlePage/model/services/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList';
 import {
     articlesPageError,
     articlesPageIsLoading,
@@ -43,10 +43,7 @@ const ArticlesPage: FC<ArticlePageProps> = ({ className }) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticlesList({
-            page: 1,
-        }));
+        dispatch(initArticlesPage());
     });
 
     if (error) {

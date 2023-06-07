@@ -33,6 +33,7 @@ export const CommentList: FC<CommentListProps> = ({ className, comments, isLoadi
                         isLoading={isLoading}
                         className={cls.comment}
                         comment={comment}
+                        key={comment.id}
                     />
                 ))
             ) : (
