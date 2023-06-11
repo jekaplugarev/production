@@ -4,28 +4,28 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
     className?: string;
     label?: string;
-    options?: SelectOption[];
+    options?: SelectOption<T>[];
     value?: string;
-    onChange?: (value: string) => void;
+    onChange?: (value: T) => void;
     readonly?: boolean;
 }
 
-const Select = memo(({
+const Select = <T extends string>({
     className,
     label,
     options,
     value,
     onChange,
     readonly,
-}: SelectProps) => {
+}: SelectProps<T>) => {
     const optionsList = useMemo(() => options?.map((item) => (
         <option
             className={cls.option}
@@ -37,7 +37,7 @@ const Select = memo(({
     )), [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        if (onChange) onChange?.(e.target.value as T);
     };
 
     return (
@@ -57,6 +57,6 @@ const Select = memo(({
             </select>
         </div>
     );
-});
+};
 
-export default Select;
+export default memo(Select);

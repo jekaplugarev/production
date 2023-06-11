@@ -21,10 +21,23 @@ export enum ArticleView {
     SMALL = 'SMALL',
 }
 
+export enum ArticleSortField {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+}
+
 export interface ArticleTextBlock extends ArticleBlockBase {
     type: 'TEXT';
     title?: string;
     paragraphs: string[];
+}
+
+export enum ArticleType {
+    ALL = 'ALL',
+    IT = 'IT',
+    SCIENCE = 'SCIENCE',
+    ECONOMICS = 'ECONOMICS'
 }
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
