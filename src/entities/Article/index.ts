@@ -6,3 +6,5 @@ export {
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
+
+export { getArticleDetailsData } from './model/selectors/getArticleDetailsData';
