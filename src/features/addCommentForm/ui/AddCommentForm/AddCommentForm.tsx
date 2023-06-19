@@ -6,6 +6,7 @@ import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from 'shared/ui/Stack';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import {
     getAddCommentFormError,
@@ -27,7 +28,6 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
     const dispatch = useAppDispatch();
 
     const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getAddCommentFormError);
 
     const onCommentTextChange = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value));
@@ -36,11 +36,15 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
         onCommentTextChange('');
-    }, [dispatch, onSendComment, text, onCommentTextChange]);
+    }, [onSendComment, text, onCommentTextChange]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <HStack
+                max
+                justify="between"
+                className={classNames(cls.AddCommentForm, {}, [className])}
+            >
                 <Input
                     className={cls.input}
                     placeholder={t('Введите текст комментария')}
@@ -52,7 +56,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
                 >
                     {t('Отправить')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     );
 });

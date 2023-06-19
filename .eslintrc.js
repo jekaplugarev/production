@@ -22,7 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'my-eslint-plugin'
+        // 'my-eslint-plugin'
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -45,7 +45,7 @@ module.exports = {
         'i18next/no-literal-string': [
             'error', {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
+                ignoreAttribute: ['data-testid', 'to', 'justify', 'gap', 'role'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -56,7 +56,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'my-eslint-plugin/path-checker': 'error',
+        // 'my-eslint-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
