@@ -10,6 +10,8 @@ import { Counter } from 'entities/Counter';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -41,13 +43,26 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={onLogout}
-                    className={cls.links}
-                >
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    className={cls.dropdown}
+                    direction="bottom left"
+                    items={[
+                        {
+                            content: t('Выйти'),
+                            onClick: onLogout,
+                        },
+                        {
+                            content: t('Профиль'),
+                            href: RoutePath.profile + authData.id,
+                        },
+                    ]}
+                    trigger={(
+                        <Avatar
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    )}
+                />
                 <LoginModal isOpen={isOpen} onClose={onCloseModal} />
             </header>
         );
