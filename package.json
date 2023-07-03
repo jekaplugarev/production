@@ -22,7 +22,8 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",
@@ -104,6 +105,10 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-virtualized": "^9.22.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "loki": {
     "configurations": {
