@@ -1,12 +1,14 @@
 import { FC } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import Input from 'shared/ui/Input/Input';
+import { TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text';
+import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
@@ -16,8 +18,8 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     error?: string
-    onChangeFirstName?: (value?: string) => void;
-    onChangeLastName?: (value?: string) => void;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeLastname?: (value?: string) => void;
     onChangeAge?: (value?: string) => void;
     onChangeCity?: (value?: string) => void;
     onChangeUsername?: (value?: string) => void;
@@ -32,8 +34,8 @@ export const ProfileCard: FC<ProfileCardProps> = ({
     data,
     isLoading,
     error,
-    onChangeFirstName,
-    onChangeLastName,
+    onChangeFirstname,
+    onChangeLastname,
     onChangeAge,
     onChangeCity,
     onChangeUsername,
@@ -94,14 +96,14 @@ export const ProfileCard: FC<ProfileCardProps> = ({
                 value={data?.first}
                 placeholder={t('Ваше имя')}
                 className={cls.input}
-                onChange={onChangeFirstName}
+                onChange={onChangeFirstname}
                 readonly={readonly}
             />
             <Input
                 value={data?.lastname}
                 placeholder={t('Ваше фамилия')}
                 className={cls.input}
-                onChange={onChangeLastName}
+                onChange={onChangeLastname}
                 readonly={readonly}
             />
             <Input

@@ -6,7 +6,7 @@ import { Button } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from 'shared/ui/Text';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import {
     getAddCommentFormError,

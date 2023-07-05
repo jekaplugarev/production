@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from 'entities/Article';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from 'shared/ui/Text';
 import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
