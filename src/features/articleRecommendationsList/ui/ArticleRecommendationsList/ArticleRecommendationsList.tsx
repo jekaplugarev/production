@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { VStack } from 'shared/ui/Text';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
+import { Text } from 'shared/ui/Text';
+import { TextSize } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleList } from 'entities/Article';
 import {
@@ -17,7 +18,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     const { t } = useTranslation();
     const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
 
-    if (isLoading || error) {
+    if (isLoading || error || !articles) {
         return null;
     }
 
@@ -30,6 +31,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             <ArticleList
                 articles={articles}
                 target="_blank"
+                virtualized={false}
             />
         </VStack>
     );
