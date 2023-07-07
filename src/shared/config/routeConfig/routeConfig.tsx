@@ -5,9 +5,13 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import ProfilePage from 'pages/ProfilePage/ui/ProfilePage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { UserRole } from 'entities/User/model/types/user';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
+    roles?: UserRole[];
 }
 
 export enum AppRoutes {
@@ -18,6 +22,8 @@ export enum AppRoutes {
     ARTICLE_DETAILS = 'article_details',
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
+    ADMIN_PANEL = 'admin_panel',
+    FORBIDDEN = 'forbidden',
     NOT_FOUND = 'not_found',
 }
 
@@ -29,6 +35,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ARTICLE_DETAILS]: '/article_details/', // + id
     [AppRoutes.ARTICLE_CREATE]: '/article/new',
     [AppRoutes.ARTICLE_EDIT]: '/article/:id/edit',
+    [AppRoutes.ADMIN_PANEL]: '/admin',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -64,6 +72,17 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.ARTICLE_EDIT]: {
         path: RoutePath.article_edit,
         element: <ArticleDetailsPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ADMIN_PANEL]: {
+        path: RoutePath.admin_panel,
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: [UserRole.MANAGER, UserRole.ADMIN],
+    },
+    [AppRoutes.FORBIDDEN]: {
+        path: RoutePath.forbidden,
+        element: <ForbiddenPage />,
         authOnly: true,
     },
     [AppRoutes.NOT_FOUND]: {
