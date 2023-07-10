@@ -92,12 +92,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 scrollTop,
             }) => (
                 <div
+                    // @ts-ignore
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
                 >
                     {
                         virtualized ? (
                             <List
+                                // @ts-ignore
                                 height={height ?? 700}
                                 rowCount={rowCount}
                                 rowHeight={isBig ? 700 : 330}
